@@ -1,45 +1,51 @@
-## Contains
+# An Angular 2 + Webpack boilerplate with examples
 
-* Webpack config
-* Sass scaffolding
-* Routing capability
-* Http request demonstration
-* Bootstrap 4 Import
-* RouterChild (GithubUser component)
-* Components
-    * App (app scaffolding)
-    * Home (homepage)
-    * Navbar (menu)
-    * GithubUser (list/item demonstration)
-    * HttpModule (Http call)
-    * Google Map
-    * About (Info about this project)
+Angular 2 application with some examples (currently only HTTP service and component). Please, feel free to create issues and PRs.
 
-## Preriquisites
+Templates and stylesheets are embedded into JS bundle with help of [angular2-template-loader](https://github.com/TheLarkInn/angular2-template-loader). SASS/SCSS is used for styling. 
 
-* NodeJS (recommended: 4.1.x)
-* NPM (recommended: 3.3.x `sudo npm install -g npm`)
+`index.html` is generated using [html-webpack-plugin](https://github.com/ampedandwired/html-webpack-plugin).
 
-## Install
+Hot module replacement is not provided here. Possibly I'll add it later. Same goes for service workers.
 
-`npm install`
+### Installation
 
-## Commands
+Clone repository and run `npm install`.
 
-### Web Server
+Run `npm start` and point your browser to `http://localhost:9045/`.
 
-`npm run devserver`
+### Testing
 
-then open `http://localhost:8080/`
+Use `npm test` to run test suite. [Karma](https://github.com/karma-runner/karma) is used as test runner, [Jasmine](https://github.com/jasmine/jasmine) - as testing framework. Code coverage reports are generated using [istanbul](https://github.com/gotwarlost/istanbul) and [remap-istanbul](https://github.com/SitePen/remap-istanbul) (this provides possibility to map back to TypeScript).
 
-### Dump the dev app
+Use `npm lint` to check TypeScript files (via [tslint](https://github.com/palantir/tslint)) and SASS stylesheets (via [sass-lint](https://github.com/sasstools/sass-lint)). [Codelyzer](https://github.com/mgechev/codelyzer) helps to keep code close to [Angular 2 Style Guide](https://angular.io/styleguide).
 
-`npm run dumpdev`
+You won't find end-to-end tests in this project (usually people use Protractor for this purpose). I believe that E2E/QA testing should be written in a separate project/repository, especially if you are working on projects with microservice architecture.
 
-### Dump the prod (minified) app
+### Building bundle(s)
 
-`npm run dumpprod`
+Use `npm run build` and you will get JS bundles, their maps and `index.html` in `dist` directory.
 
-## Credit
+To build for production, use `NODE_ENV=production npm run build` (webpack configuration is chosen according to this environment variable).
 
-* https://github.com/AngularClass/angular2-webpack-starter
+### Documentation
+
+Run `npm run docs` to generate documentation for TypeScript ([typedoc](https://github.com/TypeStrong/typedoc) is used for that) and SASS stylesheets (done with [kss-node](https://github.com/kss-node/kss-node)).
+
+### Dev notes
+
+- Upgrade to `istanbul-instrumenter-loader@1.2.0` breaks code coverage
+
+- Upgrade to `remap-istanbul@0.8.*` leads to error in their binary (`SyntaxError: Block-scoped declarations (let, const, function, class) not yet supported outside strict mode`).
+
+## TODOs
+
+- Examples
+    - Typeahead with throttle/distinct
+    - Pipe
+    - AuthGuard in router
+    - Forms
+    - Input and Output
+    - rxjs-based WebSocket
+
+- Comments on tests

@@ -1,44 +1,22 @@
-var path = require('path'),
-    libPath = path.join(__dirname, 'lib'),
-    wwwPath = path.join(__dirname, 'www'),
-    pkg = require('./package.json'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+'use strict';
 
-module.exports = {
-    entry: {
-        'app': path.join(libPath, 'index.ts'),
-        'vendors': path.join(libPath, 'vendors.ts'),
-        'style': path.join(libPath, 'index.scss')
-    },
-    output: {
-        path: wwwPath,
-        filename: '[name]-[hash:6].js'
-    },
-    module: {
-        loaders: [{
-            test: /\.ts$/,
-            loader: 'ts',
-            exclude: [
-                /node_modules/
-            ]
-        }, {
-            test: /\.json$/,
-            loader: "json"
-        }, {
-            test: /\.html$/,
-            loader: 'raw'
-        }, {
-            test: /\.scss$/,
-            loader: "style!css!autoprefixer?browsers=last 2 versions!sass"
-        }],
-        noParse: [/angular2\/bundles\/.+/],
-    },
-    resolve: {
-        extensions: ['', '.ts', '.js', '.html', '.scss']
-    },
-    plugins: [new HtmlWebpackPlugin({
-        filename: 'index.html',
-        pkg: pkg,
-        template: path.join(libPath, 'index.html')
-    })]
-};
+/**
+ * TODO: Comments?
+ * TODO: HMR
+ */
+
+switch (process.env.NODE_ENV) {
+    case 'prod':
+    case 'production':
+        module.exports = require('./webpack.config.prod');
+        break;
+    case 'test':
+    case 'testing':
+        module.exports = require('./webpack.config.test');
+        break;
+    case 'dev':
+    case 'development':
+    default:
+        module.exports = require('./webpack.config.dev');
+        break;
+}

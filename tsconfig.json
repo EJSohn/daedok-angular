@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
     "module": "commonjs",
-    "declaration": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "noLib": false,
+    "moduleResolution": "node",
+    "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "noEmitHelpers": true,
     "sourceMap": true,
-    "listFiles": false,
-    "outDir": "dist"
+    "types": ["node"]
   },
-  "exclude": [ "node_modules" ]
+  "include": [
+    "src/*.ts",
+    "node_modules/@types/**/index.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }
