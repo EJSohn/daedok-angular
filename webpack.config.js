@@ -1,22 +1,19 @@
-'use strict';
-
 /**
- * TODO: Comments?
- * TODO: HMR
+ * @author: @AngularClass
  */
 
+// Look in ./config folder for webpack.dev.js
 switch (process.env.NODE_ENV) {
-    case 'prod':
-    case 'production':
-        module.exports = require('./webpack.config.prod');
-        break;
-    case 'test':
-    case 'testing':
-        module.exports = require('./webpack.config.test');
-        break;
-    case 'dev':
-    case 'development':
-    default:
-        module.exports = require('./webpack.config.dev');
-        break;
+  case 'prod':
+  case 'production':
+    module.exports = require('./config/webpack.prod')({env: 'production'});
+    break;
+  case 'test':
+  case 'testing':
+    module.exports = require('./config/webpack.test')({env: 'test'});
+    break;
+  case 'dev':
+  case 'development':
+  default:
+    module.exports = require('./config/webpack.dev')({env: 'development'});
 }
