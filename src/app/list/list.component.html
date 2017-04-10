@@ -1,5 +1,17 @@
 <section id="list">
+  <!-- list wrapper -->
   <div class="wrapper">
-    <header></header>
+
+    <section id="white-box"></section>
+
+    <header>
+      <h2>Header.</h2>
+    </header>
+
+    <article *ngFor="let article of articles">
+      <p class="bg-info">
+        {{ article }}
+      </p>
+    </article>
   </div>
 </section>

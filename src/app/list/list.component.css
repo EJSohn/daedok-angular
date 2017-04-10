@@ -14,11 +14,36 @@
   float: right;
 }
 
+/* position block */
+#white-box {
+  position: relative;
+  height: 50px;
+}
+
+header, article {
+  margin: 15px;
+}
+
+p {
+  height: 100px;
+}
+
+
 /* for mobile */
 @media only screen and (max-width : 721px) {
+
   #list {
     height: 40%;
     width: 100%;
   }
-}
 
+  /* erase white box */
+  #white-box {
+    height: 0px;
+  }
+
+  /* erase border */
+  .wrapper {
+    border-left: 0px;
+  }
+}

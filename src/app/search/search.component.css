@@ -15,7 +15,12 @@ header {
 #search-box {
   /* centering */
   margin: auto;
-  padding: 16px;
+  padding: 7px;
+}
+
+.form-control {
+  display: inline-block;
+  width: 30%;
 }
 
 span {
