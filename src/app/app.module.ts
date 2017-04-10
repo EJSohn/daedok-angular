@@ -6,11 +6,17 @@ import { HttpModule } from '@angular/http';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app/app.component';
+import { ListComponent } from './list/list.component';
+import { MapComponent } from './map/map.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListComponent,
+    MapComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
