@@ -1,0 +1,24 @@
+.wrapper {
+  border-left: 2px solid gray;
+}
+
+#list {
+  /* list wrapper */
+
+  /* size */
+  height:100%;
+  width: 30%;
+
+  /* display */
+  display: inline-block;
+  float: right;
+}
+
+/* for mobile */
+@media only screen and (max-width : 721px) {
+  #list {
+    height: 40%;
+    width: 100%;
+  }
+}
+

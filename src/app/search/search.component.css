@@ -12,9 +12,12 @@ header {
   border-bottom: 2px solid gray;
 }
 
-h4 {
+#search-box {
   /* centering */
   margin: auto;
   padding: 16px;
 }
 
+span {
+  margin: 35px;
+}

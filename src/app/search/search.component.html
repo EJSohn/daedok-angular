@@ -1,4 +1,8 @@
 <header>
-  <h4>search works!</h4>
+  <section id="search-box">
+    <span>Search</span>
+    <input #box (keyup)="0" type="text" class="form-control" placeholder="Text input">
+    <span>{{box.value}}</span>
+  </section>
 </header>
 
