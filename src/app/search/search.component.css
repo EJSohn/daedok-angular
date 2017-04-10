@@ -1,0 +1,20 @@
+header {
+  /* set */
+  z-index: 1;
+  position: absolute;
+
+  /* size */
+  height: 50px;
+  width: 100%;
+
+  /* preference */
+  background-color: white;
+  border-bottom: 2px solid gray;
+}
+
+h4 {
+  /* centering */
+  margin: auto;
+  padding: 16px;
+}
+
