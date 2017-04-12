@@ -33,6 +33,7 @@ export class MapComponent implements OnInit {
 
   // private properties
   private markers: Marker[];
+  private studyrooms: StudyRoom[];
 
   constructor(private mapsApiLoader: MapsAPILoader,
               private studyRoomService: StudyRoomService) {
@@ -43,7 +44,6 @@ export class MapComponent implements OnInit {
     this.lat = 37.5009694;
     this.lng = 127.0636711;
     this.zoom = 17;
-    this.markers = [];
 
     this.mapsApiLoader.load().then(() => {
       //  Do something.
@@ -72,7 +72,7 @@ export class MapComponent implements OnInit {
 
     this.studyRoomService.getStudyRoom(ne, sw)
       .then(studyrooms => {
-        // TODO delete later..
+        this.studyrooms = studyrooms;
 
         // make array empty
         this.markers = [];

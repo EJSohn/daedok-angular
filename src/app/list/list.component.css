@@ -1,5 +1,7 @@
 .wrapper {
   border-left: 2px solid gray;
+  overflow: hidden;
+  height:100%;
 }
 
 #list {
@@ -27,6 +29,22 @@ header, article {
 p {
   height: 100px;
 }
+
+/* scroll bar */
+#content {
+  overflow: scroll;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
 
 
 /* for mobile */

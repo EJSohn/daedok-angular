@@ -4,14 +4,20 @@
 
     <section id="white-box"></section>
 
-    <header>
-      <h2>Header.</h2>
-    </header>
+    <section id="content">
+      <header>
+        <h2>Header.</h2>
+      </header>
 
-    <article *ngFor="let article of articles">
-      <p class="bg-info">
-        {{ article }}
-      </p>
-    </article>
+      <article *ngFor="let studyroom of studyrooms">
+        <div class="well">
+          {{ studyroom['name'] }}
+          {{ studyroom['tel'] }}
+          {{ studyroom['address']}}
+          {{ studyroom['fee']}}
+          {{ studyroom['is_qanda']}}
+        </div>
+      </article>
+    </section>
   </div>
 </section>

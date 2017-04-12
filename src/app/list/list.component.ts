@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { StudyRoom } from '../object';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +17,9 @@ export class ListComponent implements OnInit {
   ];
 
   constructor() { }
+
+  @Input()
+  private studyrooms: StudyRoom;
 
   ngOnInit() {
   }
