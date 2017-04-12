@@ -1,8 +1,17 @@
+
+/* study room object for request receiver */
 export class StudyRoom {
-  name: stirng;
+  name: string;
   tel: string;
   address: string;
-  lating: stirng;
+  lating: string;
   fee: number;
   is_qanda: boolean;
+}
+
+/* marker object for google map */
+export class Marker {
+  lat: number;
+  lng: number;
+  label?: string;
 }
