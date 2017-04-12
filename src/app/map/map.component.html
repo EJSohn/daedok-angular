@@ -3,7 +3,13 @@
 
 <div class="wrapper">
   <section id="map">
-    <sebm-google-map [latitude]="lat" [longitude]="lng">
+    <sebm-google-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+      (centerChange)="centerChange($event)"
+      (boundsChange)="boundsChange($event)"
+    >
       <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
     </sebm-google-map>
   </section>

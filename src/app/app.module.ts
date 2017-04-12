@@ -11,6 +11,9 @@ import { ListComponent } from './list/list.component';
 import { MapComponent } from './map/map.component';
 import { SearchComponent } from './search/search.component';
 
+// Services
+import { StudyRoomService } from './study-room.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import { SearchComponent } from './search/search.component';
       apiKey: "AIzaSyCdUT9fZv7GFbaitHMQG3FregfOdSv0Nzs"
     })
   ],
-  providers: [],
+  providers: [StudyRoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
