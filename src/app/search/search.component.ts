@@ -25,7 +25,7 @@ import { StudyRoom } from '../object';
 export class SearchComponent implements OnInit {
   public stdrooms: Observable<StudyRoom[]>;
   public searchResult: StudyRoom[] = [];
-  public centerCoord = {lat: 37.5009694, lng: 127.0636711};
+  public centerCoord = {lat: 37.5009694, lng: 127.0636711, zoom: 17};
 
   private searchTerms = new Subject<string>();
 
@@ -68,7 +68,8 @@ export class SearchComponent implements OnInit {
 
       this.centerCoord = {
         lat: Number(direction['latlng'].split(",")[0]),
-        lng: Number(direction['latlng'].split(",")[1])
+        lng: Number(direction['latlng'].split(",")[1]),
+        zoom: 18
       };
     }
   }

@@ -20,4 +20,5 @@ export class Marker {
 export class Coordinate {
   lat: number;
   lng: number;
+  zoom: number;
 }

@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
   public lat: number;
   @Input()
   public lng: number;
-
+  @Input()
   public zoom: number;
 
   // private properties
@@ -45,7 +45,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //set google maps defaults
-    this.zoom = 17;
 
     this.mapsApiLoader.load().then(() => {
       //  Do something.
