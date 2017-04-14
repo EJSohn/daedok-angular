@@ -12,6 +12,11 @@ header {
   border-bottom: 2px solid gray;
 }
 
+
+span {
+  margin: 35px;
+}
+
 #search-box {
   /* centering */
   margin: auto;
@@ -20,9 +25,21 @@ header {
 
 .form-control {
   display: inline-block;
-  width: 30%;
+  width: 20%;
 }
 
-span {
-  margin: 35px;
+#btn_go {
+  position: relative;
+  left: 25px;
+}
+/* for mobile */
+@media only screen and (max-width : 721px) {
+  #btn_go{
+    position: relative;
+    float: right;
+  }
+
+  .form-control {
+    width: 50%;
+  }
 }

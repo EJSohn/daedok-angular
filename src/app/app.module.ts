@@ -12,7 +12,7 @@ import { MapComponent } from './map/map.component';
 import { SearchComponent } from './search/search.component';
 
 // Services
-import { StudyRoomService } from './study-room.service';
+import { StudyRoomService } from './services/study-room.service';
 
 @NgModule({
   declarations: [

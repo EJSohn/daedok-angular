@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 // Or Promise?
 import 'rxjs/add/operator/toPromise';
 
-import { StudyRoom }  from './object';
+import { StudyRoom }  from '../object';
 
 @Injectable()
 export class StudyRoomService {

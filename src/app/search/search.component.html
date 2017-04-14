@@ -4,8 +4,20 @@
   <!-- =========================================== -->
   <section id="search-box">
     <span>Search</span>
-    <input #box (keyup)="0" type="text" class="form-control" placeholder="Text input">
-    <span>{{box.value}}</span>
+    <input #box (keyup)="0" type="text" class="form-control" placeholder="Text input" list="somethingelse">
+    <datalist id="somethingelse">
+      <option value="Something"></option>
+      <option value="Something Else"></option>
+      <option value="Another One"></option>
+      <option value="Alpha"></option>
+      <option value="Bravo"></option>
+      <option value="Charlie"></option>
+      <option value="Delta"></option>
+      <option value="Echo"></option>
+      <option value="Foxtrot"></option>
+      <option value="Gamma"></option>
+    </datalist>
+    <button type="button" class="btn btn-warning" id="btn_go">Go</button>
   </section>
   <!-- =========================================== -->
   <!--              Search section end             -->

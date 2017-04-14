@@ -12,7 +12,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 
-import { StudyRoomService } from '../study-room.service';
+import { StudyRoomService } from '../services/study-room.service';
 
 import { StudyRoom } from '../object';
 import { Marker } from '../object';
@@ -83,3 +83,4 @@ export class MapComponent implements OnInit {
       });
   }
 }
+
