@@ -1,4 +1,6 @@
-# MyMapsProject
+## 대독여지도
+
+Gitlab flow 를 따라주세요!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
