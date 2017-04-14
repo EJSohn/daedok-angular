@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http }       from '@angular/http';
 
-// Do i have to use Observable?
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-
-// Or Promise?
+import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
 
 import { StudyRoom }  from '../object';
@@ -26,6 +24,7 @@ export class StudyRoomService {
     this.headers.append('Authorization', `Basic ${ btoa(this.username+":"+this.password) }`);
   }
 
+
   /* This use Observable */
   // getStudyRoom(ne: string, sw: string): Observable<StudyRoom[]>{
   //   return this.http
@@ -33,16 +32,29 @@ export class StudyRoomService {
   //     .map(response => response.json().data as StudyRoom[]);
   // }
 
-  /* This use Promise */
+  /* Get studyrooms with in NorthEast coord, SouthWest coord. */
   getStudyRoom(ne: string, sw: string): Promise<StudyRoom[]>{
-    console.log("debug: ")
-    console.log(this.baseurl+`library/get_by_sw_ne/?ne=${ne}&sw=${sw}`);
     return this.http.get(this.baseurl+`library/get_by_sw_ne/?ne=${ne}&sw=${sw}`, {headers: this.headers})
                     .toPromise()
                     .then(response => response.json() as StudyRoom[])
                     .catch(this.handleError);
 
   }
+
+  /* Get studyrooms with specific keyword */
+  getSearchResult(keyword: string): Observable<StudyRoom[]>{
+    return this.http.get(this.baseurl+`library/get_by_keyword/?keyword=${keyword}`, {headers: this.headers})
+      .map(response => response.json() as StudyRoom[])
+      .do(value => console.log(value));
+  }
+
+  /* This use Promise */
+  // getSearchResult(keyword: string): Promise<StudyRoom[]>{
+  //   return this.http.get(this.baseurl+`library/get_by_keyword/?keyword=${keyword}`, {headers: this.headers})
+  //     .toPromise()
+  //     .then(response => response.json() as StudyRoom[])
+  //     .catch(this.handleError);
+  // }
 
   // Error handling
   private handleError(error: any): Promise<any> {
