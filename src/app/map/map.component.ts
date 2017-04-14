@@ -32,7 +32,7 @@ export class MapComponent implements OnInit {
   public zoom: number;
 
   // private properties
-  private markers: Marker[];
+  private markers: Marker[] = [];
   private studyrooms: StudyRoom[];
 
   constructor(private mapsApiLoader: MapsAPILoader,
@@ -52,15 +52,9 @@ export class MapComponent implements OnInit {
   }
 
   centerChange($event) {
-    //  center change
   }
 
   mapClicked($event: MouseEvent) {
-    // console.log($event['coords'].lat);
-    // this.markers.push({
-    //   lat: $event['coords'].lat,
-    //   lng: $event['coords'].lng
-    // });
   }
 
   // User moves
@@ -74,15 +68,16 @@ export class MapComponent implements OnInit {
       .then(studyrooms => {
         this.studyrooms = studyrooms;
 
-        // make array empty
-        this.markers = [];
-
         // push new markers
         for (let studyroom of studyrooms) {
-          this.markers.push({
+          let temp_loc = {
             lat: Number(studyroom['latlng'].split(",")[0]),
             lng: Number(studyroom['latlng'].split(",")[1])
-          });
+          };
+
+          if ( !this.markers.some(stdroom => stdroom==temp_loc) ) {
+            this.markers.push(temp_loc);
+          }
 
         }
       });
