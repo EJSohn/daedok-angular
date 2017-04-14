@@ -15,3 +15,9 @@ export class Marker {
   lng: number;
   label?: string;
 }
+
+/* coordinate */
+export class Coordinate {
+  lat: number;
+  lng: number;
+}

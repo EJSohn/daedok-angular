@@ -49,7 +49,7 @@ export class StudyRoomService {
   }
 
   /* This use Promise */
-  // getSearchResult(keyword: string): Promise<StudyRoom[]>{
+  // getSearchResultToPromise(keyword: string): Promise<StudyRoom[]>{
   //   return this.http.get(this.baseurl+`library/get_by_keyword/?keyword=${keyword}`, {headers: this.headers})
   //     .toPromise()
   //     .then(response => response.json() as StudyRoom[])

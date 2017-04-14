@@ -4,18 +4,20 @@
   <!-- =========================================== -->
   <section id="search-box">
     <span>Search</span>
+
     <input #box (keyup)="search(box.value)" type="text" class="form-control" placeholder="Text input" list="stdlist">
     <datalist id="stdlist">
       <option
         *ngFor="let result of stdrooms | async"
-        (click)="gotoDetail(result)"
-        class="search-result"
-        [value]="result.name + result.address"></option>
+        (click)="selectOption(result)"
+        [value]="result.name + ' ' + result.address"></option>
     </datalist>
-    <button type="button" class="btn btn-warning" id="btn_go">Go</button>
+
+    <button type="button" class="btn btn-warning" id="btn_go" (click)="gotoSearchResult($event)">Go</button>
   </section>
   <!-- =========================================== -->
   <!--              Search section end             -->
   <!-- =========================================== -->
 </header>
 
+<app-map [lat]="centerCoord.lat" [lng]="centerCoord.lng"></app-map>

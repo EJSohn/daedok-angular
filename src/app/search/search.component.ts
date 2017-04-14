@@ -13,6 +13,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 
 import { StudyRoomService } from '../services/study-room.service';
+
 import { StudyRoom } from '../object';
 
 @Component({
@@ -23,6 +24,9 @@ import { StudyRoom } from '../object';
 
 export class SearchComponent implements OnInit {
   public stdrooms: Observable<StudyRoom[]>;
+  public searchResult: StudyRoom[] = [];
+  public centerCoord = {lat: 37.5009694, lng: 127.0636711};
+
   private searchTerms = new Subject<string>();
 
   constructor(
@@ -46,10 +50,27 @@ export class SearchComponent implements OnInit {
         console.log(error);
         return Observable.of<StudyRoom[]>([]);
         });
+
+    this.stdrooms.subscribe(
+      stdrooms => {
+        stdrooms.map( stdroom => {
+          this.searchResult = [];
+          this.searchResult.push(stdroom);
+        })
+      });
   }
 
-  gotoDetail(stdroom: StudyRoom): void{
-    console.log("detail?");
+  gotoSearchResult($event): void {
+    if( this.searchResult.length < 1 ){
+      alert("검색 결과가 없습니다!");
+    } else {
+      let direction : StudyRoom = this.searchResult.pop();
+
+      this.centerCoord = {
+        lat: Number(direction['latlng'].split(",")[0]),
+        lng: Number(direction['latlng'].split(",")[1])
+      };
+    }
   }
 
 }

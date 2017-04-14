@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { MapsAPILoader}      from 'angular2-google-maps/core';
 
 import { Observable }        from 'rxjs/Observable';
@@ -27,8 +27,12 @@ declare let google:any;
 
 export class MapComponent implements OnInit {
   // public properties
+
+  @Input()
   public lat: number;
+  @Input()
   public lng: number;
+
   public zoom: number;
 
   // private properties
@@ -41,8 +45,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     //set google maps defaults
-    this.lat = 37.5009694;
-    this.lng = 127.0636711;
     this.zoom = 17;
 
     this.mapsApiLoader.load().then(() => {
