@@ -1,23 +1,32 @@
-<header>
-  <!-- =========================================== -->
-  <!--            Search section start             -->
-  <!-- =========================================== -->
-  <section id="search-box">
-    <span>Search</span>
+<!--<nav>-->
+  <!--&lt;!&ndash; =========================================== &ndash;&gt;-->
+  <!--&lt;!&ndash;            Search section start             &ndash;&gt;-->
+  <!--&lt;!&ndash; =========================================== &ndash;&gt;-->
+  <!--<section id="search-box">-->
+    <!--<span>Search</span>-->
 
-    <input #box (keyup)="search(box.value)" type="text" class="form-control" placeholder="Text input" list="stdlist">
-    <datalist id="stdlist">
-      <option
-        *ngFor="let result of stdrooms | async"
-        (click)="selectOption(result)"
-        [value]="result.name + ' ' + result.address"></option>
-    </datalist>
+    <!--<input #box-->
+           <!--type="text" class="form-control"-->
+           <!--placeholder="Text input"-->
+           <!--autocorrect="off"-->
+           <!--autocapitalize="off"-->
+           <!--spellcheck="off"-->
+           <!--[formControl]="searchControl">-->
 
-    <button type="button" class="btn btn-warning" id="btn_go" (click)="gotoSearchResult($event)">Go</button>
-  </section>
-  <!-- =========================================== -->
-  <!--              Search section end             -->
-  <!-- =========================================== -->
-</header>
 
-<app-map [lat]="centerCoord.lat" [lng]="centerCoord.lng" [zoom]="centerCoord.zoom"></app-map>
+    <!--&lt;!&ndash; Using in modal! &ndash;&gt;-->
+    <!--&lt;!&ndash;(keyup)="search(box.value)" &ndash;&gt;-->
+    <!--&lt;!&ndash;<datalist id="stdlist">&ndash;&gt;-->
+      <!--&lt;!&ndash;<option&ndash;&gt;-->
+        <!--&lt;!&ndash;*ngFor="let result of stdrooms | async"&ndash;&gt;-->
+        <!--&lt;!&ndash;(click)="selectOption(result)"&ndash;&gt;-->
+        <!--&lt;!&ndash;[value]="result.name + ' ' + result.address"></option>&ndash;&gt;-->
+    <!--&lt;!&ndash;</datalist>&ndash;&gt;-->
+
+  <!--</section>-->
+  <!--&lt;!&ndash; =========================================== &ndash;&gt;-->
+  <!--&lt;!&ndash;              Search section end             &ndash;&gt;-->
+  <!--&lt;!&ndash; =========================================== &ndash;&gt;-->
+<!--</nav>-->
+
+<app-map></app-map>

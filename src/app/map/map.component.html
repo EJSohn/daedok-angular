@@ -1,6 +1,35 @@
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
+<nav>
+  <!-- =========================================== -->
+  <!--            Search section start             -->
+  <!-- =========================================== -->
+  <section id="search-box">
+    <span>Search</span>
 
+    <input id="address"
+           type="text"
+           class="form-control"
+           placeholder="Text input"
+           autocorrect="off"
+           autocapitalize="off"
+           spellcheck="off">
+
+
+    <!-- Using in modal! -->
+    <!--(keyup)="search(box.value)" -->
+    <!--<datalist id="stdlist">-->
+    <!--<option-->
+    <!--*ngFor="let result of stdrooms | async"-->
+    <!--(click)="selectOption(result)"-->
+    <!--[value]="result.name + ' ' + result.address"></option>-->
+    <!--</datalist>-->
+
+  </section>
+  <!-- =========================================== -->
+  <!--              Search section end             -->
+  <!-- =========================================== -->
+</nav>
 
 <div class="wrapper">
   <!-- =========================================== -->

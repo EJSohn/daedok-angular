@@ -20,3 +20,51 @@
     width: 100%;
   }
 }
+
+
+nav {
+  /* set */
+  z-index: 1;
+  position: absolute;
+
+  /* size */
+  height: 50px;
+  width: 100%;
+
+  /* preference */
+  background-color: white;
+  border-bottom: 2px solid gray;
+}
+
+
+span {
+  margin: 35px;
+}
+
+#search-box {
+  /* centering */
+  margin: auto;
+  padding: 7px;
+}
+
+.form-control {
+  display: inline-block;
+  width: 55%;
+}
+
+#btn_go {
+  position: relative;
+  left: 25px;
+}
+/* for mobile */
+@media only screen and (max-width : 721px) {
+  #btn_go{
+    position: relative;
+    float: right;
+    left: 0px;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+}

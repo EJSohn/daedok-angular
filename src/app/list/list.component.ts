@@ -8,13 +8,6 @@ import { StudyRoom } from '../object';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  title: string = 'search bar';
-  articles: string[] = [
-    'Article One',
-    'Article Two',
-    'Article Three',
-    'Article Four'
-  ];
 
   constructor() { }
 

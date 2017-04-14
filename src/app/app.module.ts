@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
@@ -25,9 +25,11 @@ import { StudyRoomService } from './services/study-room.service';
     BrowserModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyCdUT9fZv7GFbaitHMQG3FregfOdSv0Nzs"
+      apiKey: "AIzaSyCdUT9fZv7GFbaitHMQG3FregfOdSv0Nzs",
+      libraries: ['places']
     })
   ],
   providers: [StudyRoomService],

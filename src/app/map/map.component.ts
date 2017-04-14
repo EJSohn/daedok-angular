@@ -1,5 +1,7 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { MapsAPILoader}      from 'angular2-google-maps/core';
+import {Component, OnInit, NgZone, ElementRef, ViewChild} from '@angular/core';
+import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {  AgmCoreModule, MapsAPILoader}      from 'angular2-google-maps/core';
+import {} from '@types/googlemaps';
 
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
@@ -17,8 +19,6 @@ import { StudyRoomService } from '../services/study-room.service';
 import { StudyRoom } from '../object';
 import { Marker } from '../object';
 
-declare let google:any;
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -28,26 +28,52 @@ declare let google:any;
 export class MapComponent implements OnInit {
   // public properties
 
-  @Input()
-  public lat: number;
-  @Input()
-  public lng: number;
-  @Input()
-  public zoom: number;
+  public lat: number =37.561043;
+  public lng: number =126.925908;
+  public zoom: number =14;
 
   // private properties
   private markers: Marker[] = [];
   private studyrooms: StudyRoom[];
 
   constructor(private mapsApiLoader: MapsAPILoader,
+              private ngZone: NgZone,
               private studyRoomService: StudyRoomService) {
   }
 
+  private setCurrentPosition(){
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.zoom = 18;
+      }));
+    }
+  }
+
   ngOnInit() {
-    //set google maps defaults
+    this.setCurrentPosition();
 
     this.mapsApiLoader.load().then(() => {
-      //  Do something.
+      let autocomplete = new google.maps.places.Autocomplete(
+        <HTMLInputElement>document.getElementById("address"), {
+      });
+      autocomplete.addListener("place_changed", () => {
+        this.ngZone.run(() => {
+          //get the place result
+          let place: google.maps.places.PlaceResult = autocomplete.getPlace();
+
+          //verify result
+          if (place.geometry === undefined || place.geometry === null) {
+            return;
+          }
+
+          //set latitude, longitude and zoom
+          this.lat = place.geometry.location.lat();
+          this.lng = place.geometry.location.lng();
+          this.zoom = 18;
+        });
+      });
     });
 
   }
@@ -68,7 +94,7 @@ export class MapComponent implements OnInit {
     this.studyRoomService.getStudyRoom(ne, sw)
       .then(studyrooms => {
         this.studyrooms = studyrooms;
-
+        console.log(studyrooms);
         // push new markers
         for (let studyroom of studyrooms) {
           let temp_loc = {
