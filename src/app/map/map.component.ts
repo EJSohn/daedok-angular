@@ -108,7 +108,7 @@ export class MapComponent implements OnInit {
 
     // Study room Search
     this.results = this.searchTerms
-      .debounceTime(500) // wait 300ms after each keystroke before considering the term
+      .debounceTime(800) // wait 800ms after each keystroke before considering the term
       .distinctUntilChanged() // ignore if next search term is same as previous
       .switchMap(term => term // switch to new observable each time the term changes
         // return the http search observable
