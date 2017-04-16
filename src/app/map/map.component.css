@@ -1,47 +1,3 @@
-.sebm-google-map-container {
-  /* for google map */
-  height: 100%;
-  width: 100%;
-}
-
-#map {
-  /* map wrapper */
-  height: 100%;
-  width: 70%;
-
-  display: inline-block;
-  float: right;
-
-  /* this is for left-shadow */
-  position: relative;
-  z-index: 5;
-}
-
-.sebm-google-map-container:before {
-  content: '';
-  position: absolute;
-  top:0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  z-index: 10;
-  pointer-events: none;
-
-  -webkit-box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
-  -moz-box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
-  box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
-}
-
-/* for mobile */
-@media only screen and (max-width : 721px) {
-  #map {
-    height: 60%;
-    width: 100%;
-  }
-}
-
-
 nav {
   /* set */
   z-index: 10;
@@ -67,19 +23,70 @@ span {
   padding: 7px;
 }
 
+#btn_go {
+  position: relative;
+  left: 25px;
+}
+
+#map {
+  /* map wrapper */
+  height: 100%;
+  width: 70%;
+
+  display: inline-block;
+  float: right;
+
+  /* this is for left-shadow */
+  position: relative;
+  z-index: 5;
+}
+
+#search_studyroom {
+  position: relative;
+  float: right;
+}
+
+.sebm-google-map-container {
+  /* for google map */
+  height: 100%;
+  width: 100%;
+}
+
+.sebm-google-map-container:before {
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  z-index: 10;
+  pointer-events: none;
+
+  -webkit-box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
+  -moz-box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
+  box-shadow: inset 10px 0 40px -2px rgba(90, 90, 90, 0.5);
+}
+
+.btn-default {
+  color: white;
+  background-color: #333;
+}
+
 .form-control {
   display: inline-block;
   width: 30%;
   border-radius: 0px !important;
 }
 
-#btn_go {
-  position: relative;
-  left: 25px;
-}
 /* for mobile */
 @media only screen and (max-width : 721px) {
   .form-control {
     width: 50%;
+  }
+
+  #map {
+    height: 60%;
+    width: 100%;
   }
 }
