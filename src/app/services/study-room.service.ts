@@ -44,7 +44,7 @@ export class StudyRoomService {
   /* Get studyrooms with specific keyword */
   getSearchResult(keyword: string): Observable<StudyRoom[]>{
     return this.http.get(this.baseurl+`library/get_by_keyword/?keyword=${keyword}`, {headers: this.headers})
-      .map(response => response.json().slice(1, 5) as StudyRoom[])
+      .map(response => response.json().slice(1, 10) as StudyRoom[])
       .do(value => console.log(value));
   }
 

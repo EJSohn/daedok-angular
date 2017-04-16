@@ -12,9 +12,13 @@ nav {
   border-bottom: 1.5px solid black;
 }
 
-
 span {
   margin: 35px;
+}
+
+/* change bootstrap's modal inside margin */
+span[_ngcontent-c1] {
+  margin: 15px !important;
 }
 
 #search-box {
@@ -44,6 +48,10 @@ span {
 #search_studyroom {
   position: relative;
   float: right;
+}
+
+#search {
+  width: 100%;
 }
 
 .sebm-google-map-container {
@@ -79,6 +87,20 @@ span {
   border-radius: 0px !important;
 }
 
+.list-unstyled {
+  margin: 5px;
+  text-align: center;
+}
+
+.list-unstyled li {
+   padding: 5px;
+   border-bottom: 1px solid rgba(90, 90, 90, 0.5);
+ }
+
+.list-unstyled li:active {
+  background-color: rgba(90, 90, 90, 0.5);
+}
+
 /* for mobile */
 @media only screen and (max-width : 721px) {
   .form-control {
@@ -88,6 +110,7 @@ span {
   #map {
     height: 60%;
     width: 100%;
+    position: absolute;
   }
 
   .wrapper {
@@ -95,6 +118,4 @@ span {
     flex-flow: column;
   }
 
-  .a{order:1;}
-  .c{order:2;}
 }

@@ -25,13 +25,34 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title pull-left">Child modal</h4>
+            <h4 class="modal-title pull-left">독서실 찾기</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            I am a child modal, opened from parent component!
+
+            <!-- Modal Body -->
+            <input #box
+                   id="search"
+                   type="text"
+                   class="form-control"
+                   [formControl]="searchControl"
+                   placeholder="독서실 이름을 입력해주세요"
+                   (keyup)="searchbox(box.value)"
+                   autocorrect="off"
+                   autocapitalize="off"
+                   spellcheck="off">
+            <ul class="list-unstyled">
+              <li
+              *ngFor="let result of results | async"
+              (click)="selectOption(result)">
+                <b>{{ result.name }}</b>
+                <br>
+                {{ result.address}}
+              </li>
+            </ul>
+
           </div>
         </div>
       </div>
@@ -56,7 +77,6 @@
       [latitude]="lat"
       [longitude]="lng"
       [zoom]="zoom"
-      (centerChange)="centerChange($event)"
       (boundsChange)="boundsChange($event)"
       (mapClick)="mapClicked($event)"
     >
