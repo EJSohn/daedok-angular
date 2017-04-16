@@ -5,12 +5,10 @@
   <!--            Search section start             -->
   <!-- =========================================== -->
   <section id="search-box">
-    <span>Search</span>
-
     <input id="address"
            type="text"
            class="form-control"
-           placeholder="Text input"
+           placeholder="주소를 입력해주세요"
            autocorrect="off"
            autocapitalize="off"
            spellcheck="off">
@@ -32,6 +30,10 @@
 </nav>
 
 <div class="wrapper">
+
+  <!-- app list component -->
+  <app-list [studyrooms]="studyrooms"></app-list>
+
   <!-- =========================================== -->
   <!--              Map section start              -->
   <!-- =========================================== -->
@@ -57,9 +59,6 @@
   <!-- =========================================== -->
   <!--                Map section end              -->
   <!-- =========================================== -->
-
-  <!-- app list component -->
-  <app-list [studyrooms]="studyrooms"></app-list>
 
 </div>
 

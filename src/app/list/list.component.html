@@ -8,19 +8,21 @@
     <section id="white-box"></section>
 
     <section id="content">
-      <header>
-        <h2>Header.</h2>
+      <header id="top_image">
+        <img src="../../assets/images/list_top_image.jpg" id="list_top_image"/>
       </header>
 
       <article *ngFor="let studyroom of studyrooms">
         <div class="well">
-          {{ studyroom['name'] }}
-          {{ studyroom['tel'] }}
+          {{ studyroom['name'] }}<br>
+          {{ studyroom['tel'] }}<br>
           {{ studyroom['address']}}
-          {{ studyroom['fee']}}
-          {{ studyroom['is_qanda']}}
         </div>
       </article>
+
+      <footer>
+        <img src="../../assets/images/list_bottom_image.jpg" id="list_bottom_image"/>
+      </footer>
     </section>
   </div>
 </section>
