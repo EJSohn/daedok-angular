@@ -77,16 +77,21 @@
       [latitude]="lat"
       [longitude]="lng"
       [zoom]="zoom"
+      [mapDraggable]="false"
+      [scrollwheel]="false"
       (boundsChange)="boundsChange($event)"
-      (mapClick)="mapClicked($event)"
     >
 
       <sebm-google-map-marker
         *ngFor="let m of markers"
         [latitude]="m.lat"
         [longitude]="m.lng"
-        [label]="m.label"
       >
+
+        <sebm-google-map-info-window [disableAutoPan]="true" [isOpen]="m.isOpen">
+          {{ m.label }}
+        </sebm-google-map-info-window>
+
       </sebm-google-map-marker>
     </sebm-google-map>
   </section>

@@ -122,6 +122,10 @@ export class MapComponent implements OnInit {
 
   }
 
+  dropDecimal(num: number){
+    return Math.floor(num*1000);
+  }
+
   // User moves
   boundsChange($event) {
 
@@ -132,15 +136,30 @@ export class MapComponent implements OnInit {
     this.studyRoomService.getStudyRoom(ne, sw)
       .then(studyrooms => {
         this.studyrooms = studyrooms;
-        console.log(studyrooms);
+
         // push new markers
         for (let studyroom of studyrooms) {
+
+          let lat = Number(studyroom['latlng'].split(",")[0]);
+          let lng = Number(studyroom['latlng'].split(",")[1]);
+
           let temp_loc = {
-            lat: Number(studyroom['latlng'].split(",")[0]),
-            lng: Number(studyroom['latlng'].split(",")[1])
+            lat: lat,
+            lng: lng,
+            label: studyroom['name'],
+            isOpen: true
           };
 
-          if ( !this.markers.some(stdroom => stdroom==temp_loc) ) {
+          if( this.dropDecimal($event.getCenter().lat()) == this.dropDecimal(lat)
+            && this.dropDecimal($event.getCenter().lng()) == this.dropDecimal(lng)){
+            temp_loc['isOpen'] = true;
+          } else {
+            temp_loc['isOpen'] = false;
+          }
+
+          // Check if same object already exist;
+          let isOrNot: boolean = JSON.stringify(this.markers) === JSON.stringify(temp_loc);
+          if ( !isOrNot ) {
             this.markers.push(temp_loc);
           }
 

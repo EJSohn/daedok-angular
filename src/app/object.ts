@@ -14,11 +14,6 @@ export class Marker {
   lat: number;
   lng: number;
   label?: string;
+  isOpen?: boolean;
 }
 
-/* coordinate */
-export class Coordinate {
-  lat: number;
-  lng: number;
-  zoom: number;
-}
