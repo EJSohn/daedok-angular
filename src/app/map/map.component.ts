@@ -1,10 +1,9 @@
-import {Component, OnInit, NgZone, ElementRef, ViewChild} from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
-import {  AgmCoreModule, MapsAPILoader}      from 'angular2-google-maps/core';
-import {} from '@types/googlemaps';
+import {Component, OnInit, NgZone, ViewChild} from '@angular/core';
 
-import { Observable }        from 'rxjs/Observable';
-import { Subject }           from 'rxjs/Subject';
+// External libraries
+import { MapsAPILoader}      from 'angular2-google-maps/core';
+import {} from '@types/googlemaps';
+import { ModalDirective } from 'ng2-bootstrap/modal';
 
 // Observable class extensions
 import 'rxjs/add/observable/of';
@@ -36,6 +35,8 @@ export class MapComponent implements OnInit {
   private markers: Marker[] = [];
   private studyrooms: StudyRoom[];
 
+  @ViewChild('childModal') public childModal:ModalDirective;
+
   constructor(private mapsApiLoader: MapsAPILoader,
               private ngZone: NgZone,
               private studyRoomService: StudyRoomService) {
@@ -49,6 +50,14 @@ export class MapComponent implements OnInit {
         this.zoom = 18;
       }));
     }
+  }
+
+  public showChildModal():void {
+    this.childModal.show();
+  }
+
+  public hideChildModal():void {
+    this.childModal.hide();
   }
 
   ngOnInit() {

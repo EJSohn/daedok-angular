@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// External libraries
 import { AgmCoreModule } from 'angular2-google-maps/core';
+import { ModalModule } from 'ng2-bootstrap/modal';
 
+// Components
 import { AppComponent } from './app/app.component';
 import { ListComponent } from './list/list.component';
 import { MapComponent } from './map/map.component';
-import { SearchComponent } from './search/search.component';
 
 // Services
 import { StudyRoomService } from './services/study-room.service';
@@ -19,7 +21,6 @@ import { StudyRoomService } from './services/study-room.service';
     AppComponent,
     ListComponent,
     MapComponent,
-    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +28,7 @@ import { StudyRoomService } from './services/study-room.service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    ModalModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyCdUT9fZv7GFbaitHMQG3FregfOdSv0Nzs",
       libraries: ['places']

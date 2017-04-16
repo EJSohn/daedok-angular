@@ -14,7 +14,29 @@
            autocapitalize="off"
            spellcheck="off">
 
-    <button type="button" class="btn btn-default" id="search_studyroom">내 독서실 찾기</button>
+    <button type="button" class="btn btn-default"
+            id="search_studyroom" (click)="showChildModal()">내 독서실 찾기</button>
+
+    <!-- Modal -->
+    <div bsModal #childModal="bs-modal"
+         class="modal fade" tabindex="-1"
+         role="dialog" aria-labelledby="mySmallModalLabel"
+         aria-hidden="true" [config]="{backdrop: false}">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title pull-left">Child modal</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            I am a child modal, opened from parent component!
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
   <!-- =========================================== -->
   <!--              Search section end             -->
